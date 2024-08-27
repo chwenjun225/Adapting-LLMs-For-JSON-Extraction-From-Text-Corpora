@@ -1,0 +1,1 @@
+Folder chứa dữ liệu chưa qua xử lý và đã qua xử lý 
