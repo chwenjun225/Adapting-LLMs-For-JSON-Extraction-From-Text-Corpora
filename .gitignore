@@ -12,7 +12,11 @@ cache/
 Results/
 Reports/
 Report_01/
-From_3rdparty/
+CUDAMasterclass/
+fsdp_qlora/
+hqq/
+text-generation-webui/
+triton/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

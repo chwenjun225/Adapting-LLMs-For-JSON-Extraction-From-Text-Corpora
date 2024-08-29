@@ -148,7 +148,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=Project
+CMAKE_PROJECT_NAME:STATIC=SynerGPUs_CUDA
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -220,6 +220,15 @@ Project_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 Project_SOURCE_DIR:STATIC=/rhome/f111169109/syner-gpus/Codes/SynerGPUs_CUDA
+
+//Value Computed by CMake
+SynerGPUs_CUDA_BINARY_DIR:STATIC=/rhome/f111169109/syner-gpus/Codes/SynerGPUs_CUDA
+
+//Value Computed by CMake
+SynerGPUs_CUDA_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+SynerGPUs_CUDA_SOURCE_DIR:STATIC=/rhome/f111169109/syner-gpus/Codes/SynerGPUs_CUDA
 
 
 ########################

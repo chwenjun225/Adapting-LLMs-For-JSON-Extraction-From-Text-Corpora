@@ -1,0 +1,1 @@
+Thư mục này chứa, lưu trữ code của các repo bên thứ 3 
