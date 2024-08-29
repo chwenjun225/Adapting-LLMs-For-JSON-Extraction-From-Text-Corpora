@@ -4,23 +4,23 @@
 # https://wandb.ai/answerdotai/fsdp/runs/gb34o6p4?workspace=user-k-answer-ai
 # NOTE: Loss curve is flat - 1) use lower lr ? 2) start immediate annealing get_cosine_one_cycle_scheduler(..., min_lr_fraction=0.0)
 
-# Finetune_Llama31_8b_Test_Epoch1_BatchSize2_GradAccum2_AlpaSample_QLORA_BF16 - TEST PURPOSE
+# Finetune_Llama2_7b_Epoch5_LenSeq4096_QLORA_BF16_BatchSize2_GradAccum4_InsuranceBrands
 python ./Codes/FSDP_QLORA/train.py \
+--project_name Finetune_Llama2_7b_Epoch5_LenSeq4096_QLORA_BF16_BatchSize2_GradAccum4_InsuranceBrands \
+--num_epochs 5 \
 --batch_size 2 \
---context_length 2048 \
---precision bf16 \
+--context_length 4096 \
 --train_type qlora \
+--precision bf16 \
 --use_gradient_checkpointing true \
 --use_cpu_offload true \
---dataset alpaca \
+--dataset insurance_brands \
 --reentrant_checkpointing true \
 --save_model True \
 --output_dir ./Results \
---num_epochs 3 \
 --model_name meta-llama/Llama-2-7b-hf \
---project_name Finetune_Llama2_7b_Test_Epoch1_BatchSize16_GradAccum4_AlpaCleaned_QLORA_BF16 \
---log_to tqdm \
---gradient_accumulation_steps 4
+--log_to wandb \
+--gradient_accumulation_steps 4 
 
 # LoRA bf16
 python train.py \

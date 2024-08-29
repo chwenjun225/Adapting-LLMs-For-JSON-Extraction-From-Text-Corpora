@@ -6,9 +6,9 @@ llama3_8b_instruct_lora_5epo_merged16bit_gguf/
 llama3_8b_instruct_lora_5epo/
 
 # Folder
+wandb/
 Dataset_01/
 cache/
-results
 Results/
 Report_01/
 From_3rdparty/
@@ -17,6 +17,9 @@ From_3rdparty/
 __pycache__/
 *.py[cod]
 *$py.class
+
+# vscode 
+.vscode/
 
 # C extensions
 *.so

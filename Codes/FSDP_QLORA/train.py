@@ -1,5 +1,5 @@
 """
-Thanks AnswerDotAI for created this wonderfull project: https://github.com/AnswerDotAI/fsdp_qlora
+Dự án này bắt đầu với code từ: https://github.com/AnswerDotAI/fsdp_qlora
 
 Read our announcement blog post: https://www.answer.ai/posts/2024-03-06-fsdp-qlora.html.
 
@@ -347,7 +347,7 @@ class InstructionDataset(Dataset):
         return len(self.dataset)
     
     def __getitem__(self, index):
-        IGNORE_INDEX = -100  # The default setting in CrossEntropyLoss
+        IGNORE_INDEX = -100  # The default setting in `CrossEntropyLoss`
         if self.style == "guanaco":
             prompt = self.dataset[index]["text"].split("### Assistant: ")[0]
             example = self.dataset[index]["text"]
@@ -361,13 +361,17 @@ class InstructionDataset(Dataset):
             sample = self.dataset[index]
             prompt = prompt_template.format_map(sample)
             example = prompt + sample['answer']
-        else: # Alpaca
+        elif self.style == "alpaca": # Alpaca
             ann = self.dataset[index]
             if ann.get("input", "") == "":
                 prompt = PROMPT_DICT["prompt_no_input"].format_map(ann)
             else:
                 prompt = PROMPT_DICT["prompt_input"].format_map(ann)
             example = prompt + ann["output"]
+        elif self.style == "insurance_brands":
+            ann = self.dataset[index]
+            prompt = PROMPT_DICT["prompt_no_input"].format_map(ann)
+            example = prompt + str(ann["output"]) 
 
         prompt = torch.tensor(self.tokenizer.encode(prompt), dtype=torch.int64)
         example = self.tokenizer.encode(example)
@@ -407,16 +411,16 @@ def get_dataloader(tokenizer: PreTrainedTokenizerFast, args: Dict):
     elif args["dataset"] == "sql":
         dataset = load_dataset("knowrohit07/know_sql")['validation']
         dataset = dataset.shuffle(seed=args["seed"])
-        dataset = dataset.select(range(1000,len(dataset)))
+        dataset = dataset.select(range(1000, len(dataset)))
     elif args["dataset"] == "orca_math":
         dataset = load_dataset("microsoft/orca-math-word-problems-200k")['train'].shuffle(seed=42)
         # Train with 10k for starters, then 100k
         dataset = dataset.select(range(0,args['dataset_samples']))
+    elif args["dataset"] == "insurance_brands": # Instruction_top_5_insurance_brands_june_news_and_twitter_only
+        dataset = load_dataset("chwenjun225/Instruction_top_5_insurance_brands_june_news_and_twitter_only")["train"]
 
     # Truncate dataset so it's evenly divisible by grad_accumulation_steps
-    dataset = dataset.select(
-        range(0, len(dataset)-len(dataset)%(args["batch_size"]*args["gradient_accumulation_steps"]))
-    )
+    dataset = dataset.select(range(0, len(dataset)-len(dataset)%(args["batch_size"]*args["gradient_accumulation_steps"])))
 
     # Create the InstructionDataset
     if args["dataset"] == "guanaco":
@@ -425,9 +429,11 @@ def get_dataloader(tokenizer: PreTrainedTokenizerFast, args: Dict):
         dataset = InstructionDataset(dataset, tokenizer, style="qna")
     elif args["dataset"] == "orca_math":
         dataset = InstructionDataset(dataset, tokenizer, style="qna_no_ctx")
-    else: # (w/ alpaca prompt formatting)
+    elif args["dataset"] == "alpaca": # (w/ alpaca prompt formatting) 
         dataset = InstructionDataset(dataset, tokenizer, style="alpaca")
-    
+    elif args["dataset"] == "insurance_brands":
+        dataset = InstructionDataset(dataset, tokenizer, style="insurance_brands")
+
     # Collate function
     def collate_fn(batch, with_attention_mask=False):
         # To list of tensors
@@ -435,20 +441,13 @@ def get_dataloader(tokenizer: PreTrainedTokenizerFast, args: Dict):
         attention_masks = [torch.tensor(item['attention_mask']) for item in batch]
         labels = [torch.tensor(item['labels']) for item in batch]
         # Pad + Truncate
-        input_ids = pad_sequence(
-            input_ids, 
-            batch_first=True, 
-            padding_value=tokenizer.pad_token_id
-        )[:, :args["context_length"]]
+        input_ids = pad_sequence(input_ids, batch_first=True, padding_value=tokenizer.pad_token_id)[:, :args["context_length"]]
         
         if with_attention_mask:
-            attention_masks = pad_sequence(
-                attention_masks, 
-                batch_first=True, 
-                padding_value=0
-            )[:, :args["context_length"]]
+            attention_masks = pad_sequence(attention_masks, batch_first=True, padding_value=0)[:, :args["context_length"]]
         else:
             attention_masks = None
+
         labels = pad_sequence(
             labels, 
             batch_first=True, 
@@ -1337,7 +1336,7 @@ def main(
     context_length: int = 512, # Max length of input sequence (in tokens)
     gradient_accumulation_steps: int = 1, # How many steps to accumulate gradients over (increases effective batch size)
     num_epochs: int = 1, # How many epochs of training to do, pick 1, 2, 3, 4, 5
-    dataset: Param("", choices=["alpaca", "alpaca_sample", "dummy", "guanaco", "sql", "orca_math"]) = "alpaca_sample", # alpaca, alpaca_sample (for a 128-sample test) or "dummy" for 16 long dummy samples
+    dataset: Param("", choices=["alpaca", "alpaca_sample", "dummy", "guanaco", "sql", "orca_math", "insurance_brands"]) = "alpaca_sample", # alpaca, alpaca_sample (for a 128-sample test) or "dummy" for 16 long dummy samples
     dataset_samples: int = 512, # Number of samples in an epoch if using "alpaca_sample" or "dummy" dataset
     sharding_strategy: Param("", choices=["full_shard", "shard_grad_op", "ddp", "hybrid_full_shard", "hybrid_shard_grad_op"]) = "full_shard", # Sharding strategy for FSDP
     use_gradient_checkpointing: bool_arg = True, # Use FSDP's activation checkpointing
