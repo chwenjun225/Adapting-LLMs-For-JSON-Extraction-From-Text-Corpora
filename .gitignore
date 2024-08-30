@@ -5,13 +5,16 @@ llama3_8b_instruct_lora_5epo_merged16bit/
 llama3_8b_instruct_lora_5epo_merged16bit_gguf/
 llama3_8b_instruct_lora_5epo/
 
+# Model trained
+*.safetensors
+
 # Folder
 wandb/
-Dataset_01/
+dataset_01/
 cache/
-Results/
-Reports/
-Report_01/
+reports/
+results/
+report_01/
 CUDAMasterclass/
 fsdp_qlora/
 hqq/
