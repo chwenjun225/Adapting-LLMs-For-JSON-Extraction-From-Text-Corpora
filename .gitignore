@@ -10,7 +10,7 @@ llama3_8b_instruct_lora_5epo/
 
 # Folder
 wandb/
-dataset_01/
+insurance_brands/
 cache/
 reports/
 results/
