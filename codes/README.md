@@ -1,1 +1,0 @@
-Dự án ngày nhằm nghiên cứu tận dụng khả nảng của GPUs, nghiên cứu cách gộp RAM của GPU lại để training model 

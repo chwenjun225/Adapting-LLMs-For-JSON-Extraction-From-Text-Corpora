@@ -1,0 +1,1 @@
+Không sử dụng notebook nào thì cho vào folder này 
