@@ -1,5 +1,7 @@
 # SynerGPUs - Optimize and combine vram of multiple GPUs 
 
+陳文俊 - National Kaohsiung University of Science and Technology
+
 This project provides scripts and tools to finetune large language models (LLMs) using multiple GPUs. The project leverages techniques such as Fully Sharded Data Parallel (FSDP) and Quantized Low-Rank Adaptation (QLoRA) to efficiently train models on large datasets.
 
 ## Features
