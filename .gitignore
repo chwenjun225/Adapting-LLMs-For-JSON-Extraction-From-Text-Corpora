@@ -4,6 +4,8 @@ _unsloth_sentencepiece_temp/
 llama3_8b_instruct_lora_5epo_merged16bit/
 llama3_8b_instruct_lora_5epo_merged16bit_gguf/
 llama3_8b_instruct_lora_5epo/
+contrib/
+lora_adapters/
 
 # Model trained
 *.safetensors

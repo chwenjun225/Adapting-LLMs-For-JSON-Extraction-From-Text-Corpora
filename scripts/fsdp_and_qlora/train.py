@@ -130,8 +130,8 @@ except ImportError:
     pass 
 
 # LoRA and DORA modules 
-from Scripts.dora import BNBDORA, HQQDORA, DORALayer, MagnitudeLayer
-from Scripts.lora import LORA
+from dora import BNBDORA, HQQDORA, DORALayer, MagnitudeLayer
+from lora import LORA
 
 from profiling_utils import profiling_context
 
