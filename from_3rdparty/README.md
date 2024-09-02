@@ -1,1 +1,1 @@
-Thư mục này chứa, lưu trữ code của các repo bên thứ 3 
+Folder này chứa các repository của bên thứ 3 

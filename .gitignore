@@ -17,8 +17,6 @@ cache/
 reports/
 results/
 report_01/
-CUDAMasterclass/
-fsdp_qlora/
 hqq/
 text-generation-webui/
 triton/
