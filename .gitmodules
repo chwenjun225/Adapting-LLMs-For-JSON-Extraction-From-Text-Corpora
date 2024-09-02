@@ -1,3 +1,0 @@
-[submodule "fsdp_qlora"]
-	path = fsdp_qlora
-	url = https://github.com/chwenjun225/fsdp_qlora
