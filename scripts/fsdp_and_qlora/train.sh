@@ -4,6 +4,13 @@
 # https://wandb.ai/answerdotai/fsdp/runs/gb34o6p4?workspace=user-k-answer-ai
 # NOTE: Loss curve is flat - 1) use lower lr ? 2) start immediate annealing get_cosine_one_cycle_scheduler(..., min_lr_fraction=0.0)
 
+# inference.sh 
+lm_eval --model hf \
+--model_args pretrained=chwenjun225/lora_adapters,load_in_4bit=True,parallelize=True \
+--tasks lambada_openai,hellaswag,piqa,arc_easy,arc_challenge,winogrande,openbookqa \
+--device cuda \
+--batch_size auto
+
 # Finetune_Llama2_7b_Epoch5_LenSeq4096_QLORA_BF16_BatchSize2_GradAccum4_InsuranceBrands
 python ./Codes/FSDP_QLORA/train.py \
 --project_name Finetune_Llama2_7b_Epoch5_LenSeq4096_QLORA_BF16_BatchSize2_GradAccum4_InsuranceBrands \
@@ -21,13 +28,6 @@ python ./Codes/FSDP_QLORA/train.py \
 --model_name meta-llama/Llama-2-7b-hf \
 --log_to wandb \
 --gradient_accumulation_steps 4 
-
-# Convert `adapter_lora` to `gguf`
-python ./from_3rdparty/llama.cpp/convert_lora_to_gguf.py \
---outfile llama-2-7b-qlora-f16-text_extract_information \
---outtype f16 \
---base meta-llama/Llama-2-7b-hf \
---lora_path chwenjun225/llama-2-7b-qlora-f16-text_extract_information
 
 # LoRA bf16
 python train.py \
