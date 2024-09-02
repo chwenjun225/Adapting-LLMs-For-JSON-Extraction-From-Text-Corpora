@@ -22,6 +22,13 @@ python ./Codes/FSDP_QLORA/train.py \
 --log_to wandb \
 --gradient_accumulation_steps 4 
 
+# Convert `adapter_lora` to `gguf`
+python ./from_3rdparty/llama.cpp/convert_lora_to_gguf.py \
+--outfile llama-2-7b-qlora-f16-text_extract_information \
+--outtype f16 \
+--base meta-llama/Llama-2-7b-hf \
+--lora_path chwenjun225/llama-2-7b-qlora-f16-text_extract_information
+
 # LoRA bf16
 python train.py \
 --model_name meta-llama/Llama-2-7b-hf \

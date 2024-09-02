@@ -19,7 +19,7 @@ This project provides scripts and tools to finetune large language models (LLMs)
     git clone https://github.com/yourusername/your-repo-name.git
     cd your-repo-name
     ```
-
+    
 2. Create and activate a conda environment:
     ```sh
     conda create -n fsdp_qlora_env python=3.10

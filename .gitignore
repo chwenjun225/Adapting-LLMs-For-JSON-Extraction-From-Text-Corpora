@@ -22,6 +22,7 @@ fsdp_qlora/
 hqq/
 text-generation-webui/
 triton/
+lm-evaluation-harness/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
