@@ -17,10 +17,6 @@ cache/
 reports/
 results/
 report_01/
-hqq/
-text-generation-webui/
-triton/
-lm-evaluation-harness/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
