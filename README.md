@@ -1,4 +1,4 @@
-# 2024-09-02:16:22:58,349 INFO     
+# 2024-09-02:16:22:58,349 INFO - meta-llama/Llama-2-7b-hf
 [evaluation_tracker.py:269] Output path not provided, skipping saving results aggregated
 hf (pretrained=chwenjun225/lora_adapters,load_in_4bit=True,parallelize=True), gen_kwargs: (None), limit: None, num_fewshot: None, batch_size: auto (32)
 |    Tasks     |Version|Filter|n-shot|  Metric  |   |Value |   |Stderr|
