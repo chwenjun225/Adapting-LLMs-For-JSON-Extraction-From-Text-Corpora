@@ -9,6 +9,7 @@ lora_adapters/
 
 # Model trained
 *.safetensors
+*.pt
 
 # Folder
 wandb/
