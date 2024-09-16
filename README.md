@@ -133,7 +133,6 @@ Dec. 2: New York City, Madison Square Garden
 ```
 
 ### 2024-09-16:00:07:48,068 INFO - llama3-8b-json_extract-lora_adapter
-
 [evaluation_tracker.py:269] Output path not provided, skipping saving results aggregated
 hf (pretrained=./results/llama-3-8b-json_extract-lora_adapter), gen_kwargs: (None), limit: None, num_fewshot: None, batch_size: auto (16)
 |    Tasks     |Version|Filter|n-shot|  Metric  |   | Value |   |Stderr|
