@@ -1,4 +1,63 @@
-# 2024-09-15:14:57:30,501 INFO - llama-31-8b-json_extract-lora_adapter 
+# Adapting Large Language Model for JSON Extraction from Text Corpora
+
+## Abstract 
+In recent years, Large Language Models (LLMs) have demonstrated remarkable capabilities in understanding and processing natural language. This paper explores the adaptation of LLMs, specifically LLaMA2-7B, for the task of extracting structured JSON data from unstructured text corpora. By fine-tuning the model with methods such as Quantized Low-Rank Adaptation (QLoRA) and Fully Sharded Data Parallel, we aim to enhance the efficiency and accuracy of JSON extraction. The model was trained on a customized dataset to optimize its performance in this specific task. Experimental results show that our approach significantly improves extraction accuracy compared to traditional methods, providing a robust solution for converting textual data into structured formats. This research contributes to the field by demonstrating the potential of LLMs in automating data extraction processes, which can be beneficial for various applications in data analytics, information retrieval, and natural language processing.
+
+## Introduction
+In the era of big data, extracting structured information from unstructured text is a critical task for various applications, including data analytics, information retrieval, and natural language understanding. JSON (JavaScript Object Notation) has become a standard format for representing structured data due to its simplicity and ease of use. However, extracting JSON data from raw text remains a challenging problem, especially when dealing with large volumes of diverse and complex textual corpora.
+
+Large Language Models (LLMs) have recently shown exceptional performance in various natural language processing (NLP) tasks, thanks to their ability to understand and generate human-like text. Models like GPT-3 and LLaMA2-7B have demonstrated the potential to comprehend context and generate structured responses. Despite these advancements, the application of LLMs for directly extracting structured data, such as JSON, from unstructured text has not been fully explored.
+
+This paper addresses this gap by investigating the adaptation of LLMs for the task of JSON extraction from text corpora. Our approach focuses on fine-tuning the LLaMA2-7B model using techniques such as Quantized Low-Rank Adaptation (QLoRA) and Fully Sharded Data Parallel. By training the model on a customized dataset, we aim to enhance its ability to identify and extract structured data in the form of JSON.
+
+The primary objective of this research is to develop a method that improves the efficiency and accuracy of JSON extraction compared to traditional methods. By leveraging the advanced capabilities of LLMs, our work aims to provide a robust solution for converting textual data into structured formats, thereby facilitating data processing and analysis in various domains.
+
+In the following sections, we discuss the related work in the field, describe our methodology in detail, present the experimental results, and conclude with potential implications and future research directions.
+
+## Related work 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+s# 2024-09-15:14:57:30,501 INFO - llama-31-8b-json_extract-lora_adapter 
 [evaluation_tracker.py:269] Output path not provided, skipping saving results aggregated 
 hf (pretrained=chwenjun225/llama-31-8b-json_extract-lora_adapter), gen_kwargs: (None), limit: None, num_fewshot: None, batch_size: auto (16) 
 |    Tasks     |Version|Filter|n-shot|  Metric  |   | Value |   |Stderr|
