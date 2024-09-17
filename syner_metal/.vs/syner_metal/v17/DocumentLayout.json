@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "D:\\Repos\\SynerMetal\\syner_metal\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{25212AAA-6F79-488C-AFA1-B6E9F8A99DA7}|syner_metal.vcxproj|D:\\Repos\\SynerMetal\\syner_metal\\kernel.cu||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{25212AAA-6F79-488C-AFA1-B6E9F8A99DA7}|syner_metal.vcxproj|solutionrelative:kernel.cu||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{CD8A649A-E549-416E-86F7-B5BD42688578}|syner_metal\\syner_metal.vcxproj|D:\\Repos\\SynerMetal\\syner_metal\\syner_metal\\kernel.cu||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{CD8A649A-E549-416E-86F7-B5BD42688578}|syner_metal\\syner_metal.vcxproj|solutionrelative:syner_metal\\kernel.cu||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,19 +14,23 @@
       "DocumentGroups": [
         {
           "DockedWidth": 213,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "kernel.cu",
-              "DocumentMoniker": "D:\\Repos\\SynerMetal\\syner_metal\\kernel.cu",
-              "RelativeDocumentMoniker": "kernel.cu",
-              "ToolTip": "D:\\Repos\\SynerMetal\\syner_metal\\kernel.cu",
-              "RelativeToolTip": "kernel.cu",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAACAAAABPAAAA",
+              "DocumentMoniker": "D:\\Repos\\SynerMetal\\syner_metal\\syner_metal\\kernel.cu",
+              "RelativeDocumentMoniker": "syner_metal\\kernel.cu",
+              "ToolTip": "D:\\Repos\\SynerMetal\\syner_metal\\syner_metal\\kernel.cu",
+              "RelativeToolTip": "syner_metal\\kernel.cu",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-09-17T14:07:18.893Z",
+              "WhenOpened": "2024-09-17T14:44:40.368Z",
               "EditorCaption": ""
             }
           ]

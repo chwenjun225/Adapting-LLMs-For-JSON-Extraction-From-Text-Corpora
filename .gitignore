@@ -60,6 +60,7 @@ __pycache__/
 *$py.class
 
 # vscode 
+.vs/
 .vscode/
 
 # C extensions
