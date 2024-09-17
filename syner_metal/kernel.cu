@@ -23,6 +23,7 @@ int main()
     cudaError_t cudaStatus = addWithCuda(c, a, b, arraySize);
     if (cudaStatus != cudaSuccess) {
         fprintf(stderr, "addWithCuda failed!");
+
         return 1;
     }
 
