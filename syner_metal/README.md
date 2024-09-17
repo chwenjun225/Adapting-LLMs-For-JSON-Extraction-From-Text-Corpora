@@ -1,0 +1,1 @@
+SynerMetal - Kết hợp VRAM của nhiều GPU 
