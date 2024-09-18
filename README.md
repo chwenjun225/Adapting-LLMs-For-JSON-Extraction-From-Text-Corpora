@@ -1,9 +1,9 @@
 # Adapting Large Language Model for JSON Extraction from Text Corpora
 
-## 1 Abstract 
+## Abstract 
 In recent years, Large Language Models (LLMs) have demonstrated remarkable capabilities in understanding and processing natural language. This paper explores the adaptation of LLMs, specifically LLaMA2-7B, for the task of extracting structured JSON data from unstructured text corpora. By fine-tuning the model with methods such as Quantized Low-Rank Adaptation (QLoRA) and Fully Sharded Data Parallel, we aim to enhance the efficiency and accuracy of JSON extraction. The model was trained on a customized dataset to optimize its performance in this specific task. Experimental results show that our approach significantly improves extraction accuracy compared to traditional methods, providing a robust solution for converting textual data into structured formats. This research contributes to the field by demonstrating the potential of LLMs in automating data extraction processes, which can be beneficial for various applications in data analytics, information retrieval, and natural language processing.
 
-## 2 Introduction
+## Introduction
 In the era of big data, extracting structured information from unstructured text is a critical task for various applications, including data analytics, information retrieval, and natural language understanding. JSON (JavaScript Object Notation) has become a standard format for representing structured data due to its simplicity and ease of use. However, extracting JSON data from raw text remains a challenging problem, especially when dealing with large volumes of diverse and complex textual corpora.
 
 Large Language Models (LLMs) have recently shown exceptional performance in various natural language processing (NLP) tasks, thanks to their ability to understand and generate human-like text. Models like GPT-3 and LLaMA2-7B have demonstrated the potential to comprehend context and generate structured responses. Despite these advancements, the application of LLMs for directly extracting structured data, such as JSON, from unstructured text has not been fully explored.
@@ -14,7 +14,7 @@ The primary objective of this research is to develop a method that improves the 
 
 In the following sections, we discuss the related work in the field, describe our methodology in detail, present the experimental results, and conclude with potential implications and future research directions.
 
-## 3 Related work 
+## Related work 
 The task of extracting structured data from unstructured text has been extensively studied in the field of natural language processing (NLP). Traditional approaches have often relied on rule-based systems, regular expressions, or statistical methods to identify and extract specific data points from text. While effective in certain contexts, these methods often require significant manual effort to adapt to new domains or data formats and may struggle with the complexity and variability of natural language.
 
 Recent advancements in Large Language Models (LLMs) have opened new avenues for automating various NLP tasks. Models such as GPT-3 and LLaMA2 have demonstrated exceptional capabilities in understanding and generating human-like text. These models are trained on vast corpora and can be fine-tuned for specific applications, making them powerful tools for tasks ranging from text generation to machine translation. However, the direct application of LLMs for extracting structured data, such as JSON, from unstructured text has not been widely explored in the literature.
@@ -25,7 +25,7 @@ Despite these advancements, there remains a gap in the application of LLMs for d
 
 Our work aims to bridge this gap by adapting LLMs, specifically LLaMA2-7B, for the task of JSON extraction. By employing advanced fine-tuning techniques such as QLoRA and Fully Sharded Data Parallel, we seek to enhance the model's ability to identify and extract structured information from diverse text corpora. This research contributes to the field by demonstrating the feasibility and effectiveness of using LLMs for structured data extraction, offering a robust alternative to traditional methods.
 
-## 4 Methodology 
+## Methodology 
 1. Overview
 This research focuses on adapting the LLaMA2-7B model for the task of extracting JSON structures from unstructured text corpora. The methodology involves fine-tuning the base model using advanced techniques to enhance its ability to generate accurate and structured JSON outputs from diverse textual inputs.
 
@@ -36,9 +36,7 @@ A customized dataset was constructed to train and evaluate the model. The datase
 The base model used in this study is LLaMA2-7B, a large language model known for its robust natural language understanding capabilities. LLaMA2-7B was chosen due to its ability to handle complex language patterns and generate coherent outputs. No major architectural modifications were made to the model, as the primary focus was on fine-tuning its weights to adapt to the JSON extraction task.
 
 4. Fine-tuning Process
-Fine-tuning was performed using Quantized Low-Rank Adaptation (QLoRA) and Fully Sharded Data Parallel (FSDP) techniques. QLoRA was employed to reduce the computational complexity of the fine-tuning process by approximating the full model weights with low-rank matrices. This approach allows the model to retain its expressive power while being adapted to the specific task of JSON extraction.
-
-Fully Sharded Data Parallel (FSDP) was utilized to efficiently distribute the model's training across multiple GPUs. FSDP enables the model to be split into shards that are distributed across different devices, allowing for parallel processing and reducing memory requirements. This approach was particularly useful given the size of LLaMA2-7B and the need for efficient fine-tuning on large datasets.
+Fine-tuning was performed using Quantized Low-Rank Adaptation (QLoRA) and Fully Sharded Data Parallel (FSDP) techniques. QLoRA was employed to reduce the computational complexity of the fine-tuning process by approximating the full model weights with low-rank matrices. This approach allows the model to retain its expressive power while being adapted to the specific task of JSON extraction. Fully Sharded Data Parallel (FSDP) was utilized to efficiently distribute the model's training across multiple GPUs. FSDP enables the model to be split into shards that are distributed across different devices, allowing for parallel processing and reducing memory requirements. This approach was particularly useful given the size of LLaMA2-7B and the need for efficient fine-tuning on large datasets.
 
 5. Training Setup
 The training was conducted on a multi-GPU setup using PyTorch and the Hugging Face Transformers library. Key hyperparameters were optimized, including learning rate, batch size, and the number of training epochs. An initial learning rate of 2e-5 was selected, with gradual decay throughout the training process. Gradient accumulation and mixed precision training were also employed to optimize the training efficiency and reduce memory consumption.
@@ -49,7 +47,7 @@ The model's performance was evaluated using metrics such as accuracy, precision,
 7. Implementation Details
 The implementation was carried out using Python, with key dependencies including PyTorch, Hugging Face Transformers, and PyTorch Lightning for the training framework. The code and dataset used for this research are available in a public repository for reproducibility and further exploration by the research community.
 
-## 5 Experiments and Results 
+## 4 Experiments and Results 
 
 ### 2024-09-15:14:57:30,501 INFO - llama-31-8b-json_extract-lora_adapter 
 [evaluation_tracker.py:269] Output path not provided, skipping saving results aggregated 
@@ -62,13 +60,10 @@ hf (pretrained=chwenjun225/llama-31-8b-json_extract-lora_adapter), gen_kwargs: (
 |              |       |none  |     0|acc_norm  |↑  | 0.6595|±  |0.0097|
 |hellaswag     |      1|none  |     0|acc       |↑  | 0.5502|±  |0.0050|
 |              |       |none  |     0|acc_norm  |↑  | 0.7272|±  |0.0044|
-|lambada_openai|      1|none  |     0|acc       |↑  | 0.3650|±  |0.0067|
-|              |       |none  |     0|perplexity|↓  |32.8862|±  |1.6321|
 |openbookqa    |      1|none  |     0|acc       |↑  | 0.3040|±  |0.0206|
 |              |       |none  |     0|acc_norm  |↑  | 0.3940|±  |0.0219|
 |piqa          |      1|none  |     0|acc       |↑  | 0.7481|±  |0.0101|
 |              |       |none  |     0|acc_norm  |↑  | 0.7590|±  |0.0100|
-|winogrande    |      1|none  |     0|acc       |↑  | 0.6511|±  |0.0134|
 
 #### Inference
 ##### Instruction: 
@@ -143,13 +138,10 @@ hf (pretrained=./results/llama-3-8b-json_extract-lora_adapter), gen_kwargs: (Non
 |              |       |none  |     0|acc_norm  |↑  | 0.6553|±  |0.0098|
 |hellaswag     |      1|none  |     0|acc       |↑  | 0.5468|±  |0.0050|
 |              |       |none  |     0|acc_norm  |↑  | 0.7196|±  |0.0045|
-|lambada_openai|      1|none  |     0|acc       |↑  | 0.3749|±  |0.0067|
-|              |       |none  |     0|perplexity|↓  |32.2059|±  |1.6374|
 |openbookqa    |      1|none  |     0|acc       |↑  | 0.2900|±  |0.0203|
 |              |       |none  |     0|acc_norm  |↑  | 0.4000|±  |0.0219|
 |piqa          |      1|none  |     0|acc       |↑  | 0.7454|±  |0.0102|
 |              |       |none  |     0|acc_norm  |↑  | 0.7508|±  |0.0101|
-|winogrande    |      1|none  |     0|acc       |↑  | 0.6433|±  |0.0135|
 
 #### Inference
 ##### Instruction:
@@ -223,13 +215,10 @@ hf (pretrained=chwenjun225/lora_adapters,load_in_4bit=True,parallelize=True), ge
 |              |       |none  |     0|acc_norm  |↑  |0.7235|±  |0.0092|
 |hellaswag     |      1|none  |     0|acc       |↑  |0.5674|±  |0.0049|
 |              |       |none  |     0|acc_norm  |↑  |0.7531|±  |0.0043|
-|lambada_openai|      1|none  |     0|acc       |↑  |0.7206|±  |0.0063|
-|              |       |none  |     0|perplexity|↓  |3.6835|±  |0.0750|
 |openbookqa    |      1|none  |     0|acc       |↑  |0.3260|±  |0.0210|
 |              |       |none  |     0|acc_norm  |↑  |0.4420|±  |0.0222|
 |piqa          |      1|none  |     0|acc       |↑  |0.7818|±  |0.0096|
 |              |       |none  |     0|acc_norm  |↑  |0.7802|±  |0.0097|
-|winogrande    |      1|none  |     0|acc       |↑  |0.6867|±  |0.0130|
 
 #### Inference
 ##### Instruction: 
