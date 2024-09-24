@@ -1,0 +1,1 @@
+Folder này chứa các tệp báo cáo words, powpoints

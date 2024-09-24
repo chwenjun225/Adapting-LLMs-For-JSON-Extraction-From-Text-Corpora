@@ -50,7 +50,6 @@ lora_adapters/
 wandb/
 insurance_brands/
 cache/
-reports/
 results/
 report_01/
 
