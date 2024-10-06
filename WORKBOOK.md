@@ -1,5 +1,5 @@
 # 09/30 - 10/06:
-- Writing paper
+- Edit paper
 - Submit paper
 - Prepare powpoint
 
