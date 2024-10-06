@@ -1,3 +1,8 @@
+# 09/30 - 10/06:
+- Writing paper
+- Submit paper
+- Prepare powpoint
+
 # 09/16 - 09/22:
 - Writing paper
 - Add result (table, graph) to the paper 
