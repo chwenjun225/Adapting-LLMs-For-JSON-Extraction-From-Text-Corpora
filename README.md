@@ -315,7 +315,7 @@ Based on the evaluation metrics across different tasks, the fine-tuned LLaMA mod
 This analysis provides evidence that adapting large language models for JSON extraction can yield effective results, making them useful tools for tasks that require summarization and structured data extraction from unstructured text sources. Further research and fine-tuning may continue to enhance these capabilities, optimizing models for even more accurate and efficient information retrieval.
 
 ## 8 References 
-
+...
 
 
 
