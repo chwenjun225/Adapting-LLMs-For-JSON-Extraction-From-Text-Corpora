@@ -1,1 +1,0 @@
-Folder này chứa tài liệu học tập

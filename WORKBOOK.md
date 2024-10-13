@@ -1,3 +1,7 @@
+# 10/07 - 10/13:
+- Prepare presentation PowPoint for seminar
+- Submit paper for WCE, adding authors
+
 # 09/30 - 10/06:
 - Edit paper
 - Submit paper
